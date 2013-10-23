@@ -1,0 +1,27 @@
+
+
+dskey=2
+pane1=19
+pane2=20
+both=pane1+pane2
+
+-- turn on Downstream key
+
+for i = 1,20 do
+  EnviroWrite("mstrigger","off")
+  while EnviroRead("mstrigger")=="off" do
+    Sleep(200)
+  end
+  inactive=active
+  active=both-inactive
+
+  VSLog("activate"..active)
+  -- setAtem pane to active
+
+  -- load into inactive pane
+      
+end
+
+
+
+-- turn off Downstream key

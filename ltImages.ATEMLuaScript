@@ -1,5 +1,4 @@
-CLS();
---
+-- load the gd libary
 package.cpath=package.cpath..";C:\\Users\\evan\\Downloads\\justmacros\\Libraries\\GD\\?.dll"
 VSLog(package.cpath)
 
