@@ -1,0 +1,7 @@
+path="C:\\Users\\evan\\Documents\\Pics\\";
+dir = FSScanPath(path);
+
+for i = 1, FSScanResultGetCount(dir) do
+   VSLog(path..FSScanResultGetEntryName(dir,i));
+   ATEMMixerMediaStoreUploadStill(1,i,path..FSScanResultGetEntryName(dir,i));
+end;
