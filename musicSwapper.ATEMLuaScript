@@ -1,6 +1,3 @@
--- $$USES "LtImages"
-
-C_delay=2500
 
 
 function waitTrigger(code,button)
@@ -15,59 +12,25 @@ end
 
 CLS();
 
-file = io.open("C:\\Users\\evan\\Dropbox\\RICHLAND VIDEO\\Music\\hymn10.txt","r")
-music={}
-index=0
-while true do
-  line1,line2 = file:read("*line","*line")
-  if not line1 then break end
-  --VSLog(line1,line2)
-  a={}
-  a[0],a[1]=line1,line2
-  music[index]=a
-  index = index + 1
-end
-musiccount=index
-
-VSLog("Done: "..musiccount)
+musiccount=EnviroRead("musiccount")
+VSLog("Music Frames: "..musiccount)
 
 dskey=2
-pane1=18
-pane2=19
-both=pane1+pane2
-active=pane1
-inactive=pane2
-
--- preload active frame
-loadDSKLines(music[0][0],music[0][1],active)
-Sleep(C_delay)
-ATEMMixerMPSetMediaIndex(1,2,active)
+ATEMMixerMPSetMediaIndex(1,dskey,1)
 
 -- turn on Downstream key
-ATEMMixerDSKSetOnAir( 1, 2, "TRUE" );
+ATEMMixerDSKSetOnAir( 1, dskey, "TRUE" );
 
 
-for i = 1,musiccount-1 do
-  -- load into inactive pane
-  --if i < musiccount then
-    VSLog(music[i][0],music[i][1])
-    loadDSKLines(music[i][0],music[i][1],inactive)
-    Sleep(C_delay)
-  --end
+for i = 2,musiccount do
 
   waitTrigger("mstrigger",24)
 
-  inactive=active
-  active=both-inactive
-
-  VSLog("activate "..active.." "..i)
-  -- setAtem pane to active
-  ATEMMixerMPSetMediaIndex(1,2,active)
+  ATEMMixerMPSetMediaIndex(1,dskey,i)
 end
 
-waitTrigger("mstrigger",24)
+waitTrigger("mstrigger",24);
 
--- turn off Downstream key
-ATEMMixerDSKSetOnAir( 1, 2, "FALSE" );
+ATEMMixerDSKSetOnAir( 1, dskey, "FALSE" );
 
 VSLog("Exiting")

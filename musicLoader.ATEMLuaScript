@@ -1,0 +1,19 @@
+
+
+function loadMusic (filename)
+  VSLog("Loading Music: "..ApplicationPath() .. "Macros\\jmatem\\Music\\" .. filename);
+  file = io.open(ApplicationPath() .. "Macros\\jmatem\\Music\\" .. filename,"r")
+  index=0
+  while true do
+    line1,line2 = file:read("*line","*line")
+    if not line1 then break end
+    --VSLog(line1,line2)
+    index = index + 1
+    loadDSKLines(line1,line2,index)
+    Sleep(1000);
+  end
+  musiccount=index
+  EnviroWrite("musiccount",musiccount);
+
+  VSLog("Loaded "..musiccount.." frames")
+end

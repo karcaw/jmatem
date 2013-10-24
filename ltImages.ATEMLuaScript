@@ -40,7 +40,7 @@ function loadDSKLines (line1,line2,frame)
   yoff=lly1-uly1
   yoff=10
   y1=lts+(lth-ysize)/2+yoff
-  y2=y1+ysize/2+10 
+  y2=y1+ysize/2+10
   VSLog(ysize)
 
   VSLog(y1,y2)
@@ -52,9 +52,11 @@ function loadDSKLines (line1,line2,frame)
   key:stringFT(Kwhite,font,fsize1,0,x1+4,y1+3,line1);
   key:stringFT(Kwhite,font,fsize2,0,x2+4,y2+3,line2)
 
-  pic:png(path.."\\pic.png");
-  key:png(path.."\\key.png");
-  ATEMMixerMediaStoreUploadStill( 1, frame, path.."\\pic.png" , "FILE", path.."\\key.png" );
+  picf=path.."\\pic"..frame..".png";
+  keyf=path.."\\key"..frame..".png";
+  pic:png(picf);
+  key:png(keyf);
+  ATEMMixerMediaStoreUploadStill( 1, frame, picf , "FILE", keyf );
 
   VSLog("Loaded Frame.."..frame);
 end
