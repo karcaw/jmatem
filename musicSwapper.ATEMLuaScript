@@ -1,27 +1,73 @@
+-- $$USES "LtImages"
+
+C_delay=2500
 
 
-dskey=2
-pane1=19
-pane2=20
-both=pane1+pane2
-
--- turn on Downstream key
-
-for i = 1,20 do
-  EnviroWrite("mstrigger","off")
-  while EnviroRead("mstrigger")=="off" do
-    Sleep(200)
+function waitTrigger(code,button)
+  XKeysSetButtonBlueLEDState( 1, button,"True" )
+  EnviroWrite(code,"off")
+  while EnviroRead(code)=="off" do
+    Sleep(100)
   end
-  inactive=active
-  active=both-inactive
-
-  VSLog("activate"..active)
-  -- setAtem pane to active
-
-  -- load into inactive pane
-      
+  XKeysSetButtonBlueLEDState( 1, button,"False" )
 end
 
 
+CLS();
+
+file = io.open("C:\\Users\\evan\\Dropbox\\RICHLAND VIDEO\\Music\\hymn10.txt","r")
+music={}
+index=0
+while true do
+  line1,line2 = file:read("*line","*line")
+  if not line1 then break end
+  --VSLog(line1,line2)
+  a={}
+  a[0],a[1]=line1,line2
+  music[index]=a
+  index = index + 1
+end
+musiccount=index
+
+VSLog("Done: "..musiccount)
+
+dskey=2
+pane1=18
+pane2=19
+both=pane1+pane2
+active=pane1
+inactive=pane2
+
+-- preload active frame
+loadDSKLines(music[0][0],music[0][1],active)
+Sleep(C_delay)
+ATEMMixerMPSetMediaIndex(1,2,active)
+
+-- turn on Downstream key
+ATEMMixerDSKSetOnAir( 1, 2, "TRUE" );
+
+
+for i = 1,musiccount-1 do
+  -- load into inactive pane
+  --if i < musiccount then
+    VSLog(music[i][0],music[i][1])
+    loadDSKLines(music[i][0],music[i][1],inactive)
+    Sleep(C_delay)
+  --end
+
+  waitTrigger("mstrigger",24)
+
+  inactive=active
+  active=both-inactive
+
+  VSLog("activate "..active.." "..i)
+  -- setAtem pane to active
+  ATEMMixerMPSetMediaIndex(1,2,active)
+end
+
+waitTrigger("mstrigger",24)
 
 -- turn off Downstream key
+ATEMMixerDSKSetOnAir( 1, 2, "FALSE" );
+
+VSLog("Exiting")
