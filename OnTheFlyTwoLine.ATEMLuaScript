@@ -1,0 +1,15 @@
+
+-- $$USES "DSK2MP2","LtImages","TwoLine"
+
+
+
+line1,line2=VRFormsInstantiateModal( "TwoLineDialog","",
+                              FORM_TITLE,
+                              FORM_LEGEND,
+                              DIR_PRELOAD_VALUE );
+
+if ( line1 ~= "CANCELLED" ) then
+  VSLog(line1,line2)
+  TwoLine(line1,line2)
+end
+                             

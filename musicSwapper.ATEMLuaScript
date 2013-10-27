@@ -19,8 +19,8 @@ dskey=2
 ATEMMixerMPSetMediaIndex(1,dskey,1)
 
 -- turn on Downstream key
-ATEMMixerDSKSetOnAir( 1, dskey, "TRUE" );
-
+-- ATEMMixerDSKSetOnAir( 1, dskey, "TRUE" );
+ATEMMixerDSKExecuteAutoTransition( 1, dskey)
 
 for i = 2,musiccount do
 
@@ -31,6 +31,7 @@ end
 
 waitTrigger("mstrigger",24);
 
-ATEMMixerDSKSetOnAir( 1, dskey, "FALSE" );
+-- ATEMMixerDSKSetOnAir( 1, dskey, "FALSE" );
+ATEMMixerDSKExecuteAutoTransition( 1, dskey)
 
 VSLog("Exiting")

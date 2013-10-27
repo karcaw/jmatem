@@ -1,0 +1,22 @@
+
+-- -----------------------------------------
+-- Auto generated SnapShot from DSK2
+-- -----------------------------------------
+lvMixerNumber = 1;
+lvDSKNumber   = 2;
+lvMPNumber    = 2;
+
+ATEMMixerDSKSetFillSource(            lvMixerNumber, lvDSKNumber, 13 );     -- { Media Player 2 }
+ATEMMixerDSKSetKeySource(             lvMixerNumber, lvDSKNumber, 14 );     -- { Media Player 2 Key }
+ATEMMixerDSKSetOnAir(                 lvMixerNumber, lvDSKNumber, "FALSE" );
+ATEMMixerDSKSetTie(                   lvMixerNumber, lvDSKNumber, "FALSE" );
+ATEMMixerDSKSetRate(                  lvMixerNumber, lvDSKNumber, 30 );
+ATEMMixerDSKSetShaped(                lvMixerNumber, lvDSKNumber, "TRUE" );
+ATEMMixerDSKSetReverse(               lvMixerNumber, lvDSKNumber, "FALSE" );
+ATEMMixerDSKSetGain(                  lvMixerNumber, lvDSKNumber, 0.70 );
+ATEMMixerDSKSetClip(                  lvMixerNumber, lvDSKNumber, 0.50 );
+ATEMMixerDSKSetMaskEnabled(           lvMixerNumber, lvDSKNumber, "FALSE" );
+ATEMMixerDSKSetMaskTop(               lvMixerNumber, lvDSKNumber, 9.00 );
+ATEMMixerDSKSetMaskBottom(            lvMixerNumber, lvDSKNumber, -9.00 );
+ATEMMixerDSKSetMaskLeft(              lvMixerNumber, lvDSKNumber, -16.00 );
+ATEMMixerDSKSetMaskRight(             lvMixerNumber, lvDSKNumber, 16.00 );

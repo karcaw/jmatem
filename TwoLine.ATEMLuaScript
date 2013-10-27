@@ -1,0 +1,25 @@
+-- $$USES "DSK2MP2","LtImages"
+
+function FlashBlue(delay, button)
+  loops=delay/100
+  for i = 1,loops do
+    XKeysSetButtonBlueLEDState( 1, button, "True" )
+    Sleep(50)
+    XKeysSetButtonBlueLEDState( 1, button, "False" )
+    Sleep(50)
+  end
+end
+
+function TwoLine(line1, line2)
+  loadDSKLines(line1,line2,20)
+  VSLog("key",lvMPNumber)
+  -- Sleep(3000)
+  FlashBlue(3000,1)
+  ATEMMixerMPSetMediaIndex(1, lvMPNumber, 20)
+  ATEMMixerDSKExecuteAutoTransition( 1, lvDSKNumber)
+  Sleep(9000)
+  ATEMMixerDSKExecuteAutoTransition( 1, lvDSKNumber)
+
+end
+
+-- TwoLine("hello","world")

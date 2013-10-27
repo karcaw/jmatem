@@ -61,4 +61,3 @@ function loadDSKLines (line1,line2,frame)
   VSLog("Loaded Frame.."..frame);
 end
 
---loadDSKLines("Nathan Tenney","Head Guy",20)
