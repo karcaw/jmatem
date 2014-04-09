@@ -20,3 +20,5 @@ ATEMMixerDSKSetMaskTop(               lvMixerNumber, lvDSKNumber, 9.00 );
 ATEMMixerDSKSetMaskBottom(            lvMixerNumber, lvDSKNumber, -9.00 );
 ATEMMixerDSKSetMaskLeft(              lvMixerNumber, lvDSKNumber, -16.00 );
 ATEMMixerDSKSetMaskRight(             lvMixerNumber, lvDSKNumber, 16.00 );
+
+VSLog("point 5");

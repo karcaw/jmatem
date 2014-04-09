@@ -1,0 +1,4 @@
+-- $$USES "DSK2MP2"
+
+ATEMMixerMPSetMediaIndex(1, lvMPNumber, 20)
+ATEMMixerDSKExecuteAutoTransition( 1, lvDSKNumber)

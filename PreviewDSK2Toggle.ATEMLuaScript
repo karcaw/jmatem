@@ -1,0 +1,10 @@
+res=ATEMMixerDSKGetTie(1,2)
+if (res)
+then
+  XKeysSetButtonBlueLEDState( 1, 4, "False" )
+  ATEMMixerDSKSetTie(1,2,"FALSE")
+else
+  XKeysSetButtonBlueLEDState( 1, 4, "True" )
+  ATEMMixerDSKSetTie(1,2,"TRUE")         
+end
+

@@ -1,0 +1,3 @@
+-- $$USES "LtImages","musicLoader"
+
+loadMusic("hymn89.txt")
