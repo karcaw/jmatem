@@ -10,8 +10,8 @@ function FlashBlue(delay, button)
   end
 end
 
-function TwoLine(line1, line2)
-  loadDSKLines(line1,line2,20)
+function TwoLine(line1, line2,fs1,fs2)
+  loadDSKLines(line1,line2,20,fs1,fs2)      
   VSLog("key",lvMPNumber)
   -- Sleep(3000)
   FlashBlue(3000,1)
@@ -22,4 +22,4 @@ function TwoLine(line1, line2)
 
 end
 
--- TwoLine("hello","world")
+
