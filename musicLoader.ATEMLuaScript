@@ -1,4 +1,4 @@
-
+     
 
 function loadMusic (filename)
   VSLog("Loading Music: "..ApplicationPath() .. "Macros\\jmatem\\Music\\" .. filename);
@@ -9,11 +9,16 @@ function loadMusic (filename)
     if not line1 then break end
     --VSLog(line1,line2)
     index = index + 1
-    loadDSKLines(line1,line2,index)
+    loadDSKLines(line1,line2,index,1)
     Sleep(1000);
   end
   musiccount=index
   EnviroWrite("musiccount",musiccount);
-
+  stillcount = 1
+  nextstill = 1
+  framequeue = musiccount - 20
+  EnviroWrite("framequeue",framequeue);
+  EnviroWrite("stillcount",stillcount);
+  EnviroWrite("nextstill",nextstill);
   VSLog("Loaded "..musiccount.." frames")
 end

@@ -1,0 +1,70 @@
+mpnumber = 2
+mpdsk = 2
+mediasize = EnviroRead("mediasize")
+button = 24
+musiccount = EnviroRead("musiccount")
+nextstill = EnviroRead("nextstill")
+stillcount = EnviroRead("stillcount")
+framequeue = EnviroRead("framequeue")
+
+VSLog("MediaPlayer: "..mpnumber..", downstreamkey: "..mpdsk..", Media Size: "..mediasize..", Music Frames: "..musiccount)
+
+ function loadDSKLinesFromQueue (frame,indexnumber)
+  local path= ApplicationPath() .. "Cache\\Stills\\"
+  picf=path.."\\music\\pic"..frame..".png";
+  keyf=path.."\\music\\key"..frame..".png";
+  ATEMMixerMediaStoreUploadStill( 1, indexnumber, picf , "FILE", keyf );
+  VSLog("Loaded Frame.."..frame.." into media index "..indexnumber);
+end
+
+-- initialize firsttime script run and to autotransition DSK on.
+-- Keep in mind the DSK needs to be off first!!
+if stillcount == 1 then
+    ATEMMixerMPSetMediaIndex(1,mpnumber,nextstill)
+    ATEMMixerDSKExecuteAutoTransition(1,mpdsk)
+    XKeysSetButtonRedLEDState(1,button,"TRUE")
+    VSLog("Displaying Frame: "..stillcount.." of "..musiccount.." with music index "..nextstill)
+
+    nextstill = nextstill + 1
+    stillcount = stillcount + 1
+    EnviroWrite("stillcount",stillcount);
+    EnviroWrite("nextstill",nextstill);
+else
+    -- Messures the cumlativestills displayed verse total musiccount when
+    -- musicload was run to create the frames
+
+    if stillcount <= musiccount then
+        -- restarts the nextstill to the first index
+        if nextstill > mediasize then nextstill = 1 end
+
+        ATEMMixerMPSetMediaIndex(1,mpnumber,nextstill)
+        VSLog("Displaying Frame: "..stillcount.." of "..musiccount.." with music index "..nextstill)
+        nextstill = nextstill + 1
+        stillcount = stillcount + 1
+        EnviroWrite("stillcount",stillcount);
+        EnviroWrite("nextstill",nextstill);
+
+        -- Starts loading the next still in the queue after
+        -- the second frame has been loaded into the index
+        framequeue = tonumber(framequeue)
+        if framequeue > 0 then
+            mediaindexnumber = framequeue - (framequeue - (stillcount -2))
+            framenumber = mediasize + mediaindexnumber
+           if framenumber <= musiccount then
+                 loadDSKLinesFromQueue(framenumber,mediaindexnumber)
+
+            end
+        end
+    else
+        ATEMMixerDSKExecuteAutoTransition(1,mpdsk)
+        nextstill = nil
+        stillcount = 0
+        musiccount = 0
+        EnviroWrite("stillcount",stillcount);
+        EnviroWrite("nextstill",nextstill);
+        EnviroWrite("musiccount",musiccount);
+        XKeysSetButtonRedLEDState(1,button,"FALSE")
+        VSLog("Exiting")
+    end
+end
+
