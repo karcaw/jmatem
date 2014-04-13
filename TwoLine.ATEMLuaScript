@@ -10,11 +10,23 @@ function FlashBlue(delay, button)
   end
 end
 
+function FlashBlueTillQueue(button)
+  ql=1
+  while ql > 0 do
+    XKeysSetButtonBlueLEDState( 1, button, "True" )
+    Sleep(50)
+    XKeysSetButtonBlueLEDState( 1, button, "False" )
+    Sleep(50)
+    ql = ATEMMixerMediaStoreUploadQueueCount( 1 )
+  end
+end
+
 function TwoLine(line1, line2,fs1,fs2)
-  loadDSKLines(line1,line2,20,fs1,fs2)      
+  loadDSKLines(line1,line2,20,0,fs1,fs2)
   VSLog("key",lvMPNumber)
   -- Sleep(3000)
-  FlashBlue(3000,1)
+  -- FlashBlue(4000,19)
+  FlashBlueTillQueue(19)
   ATEMMixerMPSetMediaIndex(1, lvMPNumber, 20)
   ATEMMixerDSKExecuteAutoTransition( 1, lvDSKNumber)
   Sleep(9000)

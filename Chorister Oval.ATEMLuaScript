@@ -1,0 +1,18 @@
+-- -----------------------------------------
+-- Auto generated SnapShot from ME1.Key1
+-- -----------------------------------------
+lvMixerNumber = 1;
+lvMENumber    = 1;
+lvKeyNumber   = 1;
+
+ATEMMixerMEKeySetKeyType(             lvMixerNumber, lvMENumber, lvKeyNumber, "PATTERN" ); 
+ATEMMixerMEKeySetFillSource(          lvMixerNumber, lvMENumber, lvKeyNumber, 3 );            -- { 2-Back Left }
+ATEMMixerMEKeyPatternSetPattern(      lvMixerNumber, lvMENumber, lvKeyNumber, "CIRCLE IRIS" );
+ATEMMixerMEKeyPatternSetReverse(      lvMixerNumber, lvMENumber, lvKeyNumber, "FALSE" );
+ATEMMixerMEKeyPatternSetSize(         lvMixerNumber, lvMENumber, lvKeyNumber, 0.254 );
+ATEMMixerMEKeyPatternSetSymmetry(     lvMixerNumber, lvMENumber, lvKeyNumber, 1.000 );
+ATEMMixerMEKeyPatternSetSoft(         lvMixerNumber, lvMENumber, lvKeyNumber, 0.662 );
+ATEMMixerMEKeyPatternSetOffSetX(      lvMixerNumber, lvMENumber, lvKeyNumber, 0.200 );
+ATEMMixerMEKeyPatternSetOffSetY(      lvMixerNumber, lvMENumber, lvKeyNumber, 0.600 );
+ATEMMixerMEKeyMaskSetEnabled(         lvMixerNumber, lvMENumber, lvKeyNumber, "FALSE" );
+ATEMMixerMESetNextTransitionLayers( 1, 1,"BACKGROUND, KEY1");
