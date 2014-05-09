@@ -24,14 +24,19 @@ end
 function TwoLine(line1, line2,fs1,fs2)
   loadDSKLines(line1,line2,20,0,fs1,fs2)
   VSLog("key",lvMPNumber)
-  -- Sleep(3000)
-  -- FlashBlue(4000,19)
   FlashBlueTillQueue(19)
   ATEMMixerMPSetMediaIndex(1, lvMPNumber, 20)
-  ATEMMixerDSKExecuteAutoTransition( 1, lvDSKNumber)
-  Sleep(9000)
-  ATEMMixerDSKExecuteAutoTransition( 1, lvDSKNumber)
-
+  --ATEMMixerDSKExecuteAutoTransition( 1, lvDSKNumber)
+  --Sleep(9000)
+  --ATEMMixerDSKExecuteAutoTransition( 1, lvDSKNumber)
+  ATEMMixerDSKSetTie( lvMixerNumber, lvDSKNumber, "TRUE" )
 end
 
+function TimedOverlay(time)
+  t=time or 9000
+  VSLog("TimedOverlay:",t)    
+  ATEMMixerDSKExecuteAutoTransition( 1, lvDSKNumber)
+  Sleep(t)
+  ATEMMixerDSKExecuteAutoTransition( 1, lvDSKNumber)
+end
 
