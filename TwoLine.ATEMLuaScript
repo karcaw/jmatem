@@ -34,7 +34,7 @@ end
 
 function TimedOverlay(time)
   t=time or 9000
-  VSLog("TimedOverlay:",t)    
+  VSLog("TimedOverlay:",t)
   ATEMMixerDSKExecuteAutoTransition( 1, lvDSKNumber)
   Sleep(t)
   ATEMMixerDSKExecuteAutoTransition( 1, lvDSKNumber)
