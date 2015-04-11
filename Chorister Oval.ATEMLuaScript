@@ -11,7 +11,7 @@ ATEMMixerMEKeyPatternSetPattern(      lvMixerNumber, lvMENumber, lvKeyNumber, "C
 ATEMMixerMEKeyPatternSetReverse(      lvMixerNumber, lvMENumber, lvKeyNumber, "FALSE" );
 ATEMMixerMEKeyPatternSetSize(         lvMixerNumber, lvMENumber, lvKeyNumber, 0.254 );
 ATEMMixerMEKeyPatternSetSymmetry(     lvMixerNumber, lvMENumber, lvKeyNumber, 1.000 );
-ATEMMixerMEKeyPatternSetSoft(         lvMixerNumber, lvMENumber, lvKeyNumber, 0.662 );
+ATEMMixerMEKeyPatternSetSoft(         lvMixerNumber, lvMENumber, lvKeyNumber, 0.437 );
 ATEMMixerMEKeyPatternSetOffSetX(      lvMixerNumber, lvMENumber, lvKeyNumber, 0.200 );
 ATEMMixerMEKeyPatternSetOffSetY(      lvMixerNumber, lvMENumber, lvKeyNumber, 0.600 );
 ATEMMixerMEKeyMaskSetEnabled(         lvMixerNumber, lvMENumber, lvKeyNumber, "FALSE" );

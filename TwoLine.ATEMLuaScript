@@ -18,7 +18,7 @@ function FlashBlueTillQueue(button)
     XKeysSetButtonBlueLEDState( 1, button, "False" )
     Sleep(50)
     ql = ATEMMixerMediaStoreUploadQueueCount( 1 )
-  end
+  end                              
 end
 
 function TwoLine(line1, line2,fs1,fs2)

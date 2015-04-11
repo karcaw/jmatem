@@ -12,7 +12,7 @@ end
 function loadDSKLines (line1,line2,frame,ismusic,fs1,fs2)
   local i=0
   local path= ApplicationPath() .. "Cache\\Stills\\"
-
+            
   if line1 == nil then line1="" end
   if line2 == nil then line2="" end
 
@@ -20,20 +20,20 @@ function loadDSKLines (line1,line2,frame,ismusic,fs1,fs2)
   EnviroWrite("mediasize",mediasize)
 
   -- 1080 Input
-  fsize1=fs1 or 48
-  fsize2=fs2 or 48    
-  font="bookos.ttf"
-  w=1920
-  h=1080
-  lth=240
+  --fsize1=fs1 or 48
+  --fsize2=fs2 or 48
+  --font="bookos.ttf"
+  --w=1920
+  --h=1080   
+  --lth=240
 
   -- 720 Input Below
-  --fsize1=36
-  --fsize2=36
-  --font="bookos.ttf"
-  --w=1280
-  --h=720
-  --lth=150
+  fsize1=fs1 or 36
+  fsize2=fs2 or 36    
+  font="bookos.ttf"
+  w=1280
+  h=720
+  lth=160
 
 
   lts=h-lth
@@ -55,7 +55,7 @@ function loadDSKLines (line1,line2,frame,ismusic,fs1,fs2)
 
   llx1, lly1, lrx1, lry1, urx1, ury1, ulx1, uly1 = gd.stringFT(nil,Pwhite,font,fsize1,0,0,0,line1)
   llx2, lly2, lrx2, lry2, urx2, ury2, ulx2, uly2 = gd.stringFT(nil,Pwhite,font,fsize2,0,0,0,line2)
-  --VSLog(llx1, lly1, lrx1, lry1, urx1, ury1, ulx1, uly1) 
+  --VSLog(llx1, lly1, lrx1, lry1, urx1, ury1, ulx1, uly1)
   x1=(w-lrx1-llx1)/2;
   x2=(w-lrx2-llx2)/2;
   ysize=(lly1-uly1)+(lly2-uly2)+0

@@ -1,0 +1,4 @@
+
+-- ATEMMixerMPSetMediaIndex(1, 2, 20)
+ATEMMixerDSKExecuteAutoTransition( 1,2 )
+
