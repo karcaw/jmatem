@@ -1,4 +1,4 @@
-     
+
 
 function loadMusic (filename)
   VSLog("Loading Music: "..ApplicationPath() .. "Macros\\jmatem\\Music\\" .. filename);
@@ -16,7 +16,7 @@ function loadMusic (filename)
   EnviroWrite("musiccount",musiccount);
   stillcount = 1
   nextstill = 1
-  framequeue = musiccount - 20
+  framequeue = musiccount - 19     
   EnviroWrite("framequeue",framequeue);
   EnviroWrite("stillcount",stillcount);
   EnviroWrite("nextstill",nextstill);

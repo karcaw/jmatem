@@ -15,7 +15,7 @@ CLS();
 musiccount=EnviroRead("musiccount")
 VSLog("Music Frames: "..musiccount)
 
-dskey=2
+dskey=1    
 ATEMMixerMPSetMediaIndex(1,dskey,1)
 
 -- turn on Downstream key
@@ -28,9 +28,9 @@ for i = 2,musiccount do
 
   ATEMMixerMPSetMediaIndex(1,dskey,i)
 end
-
+XKeysSetButtonBlueLEDState( 1, button,"True" )
 waitTrigger("mstrigger",24);
-
+XKeysSetButtonBlueLEDState( 1, button,"False" )
 -- ATEMMixerDSKSetOnAir( 1, dskey, "FALSE" );
 ATEMMixerDSKExecuteAutoTransition( 1, dskey)
 

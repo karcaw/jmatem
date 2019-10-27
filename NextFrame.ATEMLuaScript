@@ -1,7 +1,7 @@
 
 
-mpnumber = 2
-mpdsk = 2
+mpnumber = 1
+mpdsk = 1 
 mediasize = EnviroRead("mediasize")
 button = 24
 musiccount = EnviroRead("musiccount")
@@ -34,6 +34,8 @@ if stillcount == 1 then
 else
     -- Messures the cumlativestills displayed verse total musiccount when
     -- musicload was run to create the frames
+    VSLog(stillcount);
+    VSLog(musiccount);
 
     if stillcount <= musiccount then
         -- restarts the nextstill to the first index
@@ -50,8 +52,11 @@ else
         -- the second frame has been loaded into the index
         framequeue = tonumber(framequeue)
         if framequeue > 0 then
-            mediaindexnumber = framequeue - (framequeue - (stillcount -2))
+            mediaindexnumber = framequeue - (framequeue - (stillcount -2)) 
             framenumber = mediasize + mediaindexnumber
+            VSLog(mediaindexnumber);
+            VSLog(framenumber);
+            VSLog(musiccount);
            if framenumber <= musiccount then
                  loadDSKLinesFromQueue(framenumber,mediaindexnumber)
 

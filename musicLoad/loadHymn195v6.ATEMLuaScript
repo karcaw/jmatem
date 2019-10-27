@@ -1,0 +1,3 @@
+-- $$USES "LtImages","musicLoader"
+
+loadMusic("hymn195vs6.txt")

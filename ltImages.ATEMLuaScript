@@ -12,7 +12,7 @@ end
 function loadDSKLines (line1,line2,frame,ismusic,fs1,fs2)
   local i=0
   local path= ApplicationPath() .. "Cache\\Stills\\"
-            
+
   if line1 == nil then line1="" end
   if line2 == nil then line2="" end
 
@@ -20,20 +20,20 @@ function loadDSKLines (line1,line2,frame,ismusic,fs1,fs2)
   EnviroWrite("mediasize",mediasize)
 
   -- 1080 Input
-  --fsize1=fs1 or 48
-  --fsize2=fs2 or 48
-  --font="bookos.ttf"
-  --w=1920
-  --h=1080   
-  --lth=240
+  fsize1=fs1 or 48
+  fsize2=fs2 or 48
+  font="bookos.ttf"
+  w=1920
+  h=1080
+  lth=240
 
   -- 720 Input Below
-  fsize1=fs1 or 36
-  fsize2=fs2 or 36    
-  font="bookos.ttf"
-  w=1280
-  h=720
-  lth=160
+  --fsize1=fs1 or 36
+  --fsize2=fs2 or 36
+  --font="bookos.ttf"
+  --w=1280
+  --h=720
+  --lth=160
 
 
   lts=h-lth
